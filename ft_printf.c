@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 14:00:34 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/25 21:45:48 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/25 22:09:28 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,17 +85,17 @@ char	*hexadecimal(void *ptr)
 	unsigned long	intptr;
 	char			*result;
 	int				i;
-	char			*hex_chars;
+	char			*hex_chars = "0123456789ABCDEF";
 
 	result = malloc(17);
 	intptr = (unsigned long)ptr;
-	i = 15;
-	while (i > 0)
+	i = 0;
+	while (i < 15)
 	{
 		temp = intptr % 16;
 		result[i] = hex_chars[temp];
 		intptr /= 16;
-		i--;
+		i++;
 	}
 	result[16] = '\0';
 	return (result);
