@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 14:00:34 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/25 21:05:27 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/25 21:45:48 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,3 +164,4 @@ int	main(void)
 // u = int unsigned decimal
 // x = unsigned hexadecimal base (base 16)
 // X = unsigned hexadecimal integer (uppercase)
+//test
