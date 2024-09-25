@@ -6,16 +6,19 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 00:23:37 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/25 13:53:24 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/25 14:04:23 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# include <stdarg.h>
 # include <stddef.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+int		ft_printf(const char *format, ...);
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
