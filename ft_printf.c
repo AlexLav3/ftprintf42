@@ -6,27 +6,37 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 14:00:34 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/25 17:24:17 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/25 21:05:27 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_atoi.c"
+#include "ft_putchar.c"
 #include "ft_putnbr.c"
 #include "ft_putstr.c"
+#include "ft_strlen.c"
 #include "libft.h"
 
 char	check_arg(const char *format)
 {
-	while (*format)
-	{
-		if (*format == '%' && *(format + 1) == 'd')
-			return ('d');
-		if (*format == '%' && *(format + 1) == 's')
-			return ('s');
-		if (*format == '%' && *(format + 1) == 'f')
-			return ('f');
-		format++;
-	}
+	int	length;
+
+	length = ft_strlen(format) - 1;
+	if (*format == '%' && *(format + 1) == 'd')
+		return ('d');
+	if (*format == '%' && *(format + 1) == 's')
+		return ('s');
+	if (*format == '%' && *(format + 1) == 'i')
+		return ('i');
+	if (*format == '%' && *(format + 1) == '%')
+		return ('%');
+	if (format[length] == 'f')
+		return ('f');
+	if (*format == '%' && *(format + 1) == 'c')
+		return ('c');
+	if (*format == '%' && *(format + 1) == 'p')
+		return ('c');
+	format++;
 	return ('\0');
 }
 
@@ -52,7 +62,6 @@ void	ft_putdouble(const char *format, double n)
 	int	mulp;
 	int	i;
 	int	decm;
-	int	fact_int;
 
 	decm = get_decimals(format);
 	i = 0;
@@ -68,9 +77,28 @@ void	ft_putdouble(const char *format, double n)
 	factp = (n - intp) * mulp;
 	if (factp < 0)
 		factp = -factp;
-	factp = factp + 0.5;
-	fact_int = (int)factp;
-	ft_putnbr(fact_int);
+	ft_putnbr(factp);
+}
+char	*hexadecimal(void *ptr)
+{
+	unsigned long	temp;
+	unsigned long	intptr;
+	char			*result;
+	int				i;
+	char			*hex_chars;
+
+	result = malloc(17);
+	intptr = (unsigned long)ptr;
+	i = 15;
+	while (i > 0)
+	{
+		temp = intptr % 16;
+		result[i] = hex_chars[temp];
+		intptr /= 16;
+		i--;
+	}
+	result[16] = '\0';
+	return (result);
 }
 
 int	ft_printf(const char *format, ...)
@@ -79,11 +107,14 @@ int	ft_printf(const char *format, ...)
 	int		num;
 	char	*str;
 	double	nm;
+	char	ch;
+	void	*ptr;
+	char	*hex_str;
 
 	va_start(args, format);
 	while (*format)
 	{
-		if (check_arg(format) == 'd')
+		if (check_arg(format) == 'd' || check_arg(format) == 'i')
 		{
 			num = va_arg(args, int);
 			ft_putnbr(num);
@@ -93,10 +124,27 @@ int	ft_printf(const char *format, ...)
 			str = va_arg(args, char *);
 			ft_putstr(str);
 		}
+		else if (check_arg(format) == 'p')
+		{
+			ptr = va_arg(args, void *);
+			hex_str = hexadecimal(ptr);
+			ft_putstr(hex_str);
+		}
+		else if (check_arg(format) == '%')
+		{
+			ch = '%';
+			ft_putchar((char)ch);
+		}
+		else if (check_arg(format) == 'c')
+		{
+			ch = va_arg(args, int);
+			ft_putchar((char)ch);
+		}
 		else if (check_arg(format) == 'f')
 		{
 			nm = va_arg(args, double);
 			ft_putdouble(format, nm);
+			return (0);
 		}
 		format++;
 	}
@@ -104,7 +152,15 @@ int	ft_printf(const char *format, ...)
 }
 int	main(void)
 {
-	ft_printf("%.2f", 1.4344756765765);
-	printf("\n%.2f", 1.4344756765765);
+	int	a;
+	int	*ptr;
+
+	a = 2;
+	ptr = &a;
+	ft_printf("%p", ptr);
+	printf("\n%p", ptr);
 }
-//%f without specifiers works, but does not if I put one (ex. 2f)
+// p = an adress (or pointer)
+// u = int unsigned decimal
+// x = unsigned hexadecimal base (base 16)
+// X = unsigned hexadecimal integer (uppercase)
