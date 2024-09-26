@@ -6,13 +6,13 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 16:34:38 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/26 16:44:27 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/26 22:40:40 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_hexupper(int n)
+int	ft_hexupper(int n, const char *format)
 {
 	char	*symbols;
 	int		value;
@@ -21,7 +21,7 @@ int	ft_hexupper(int n)
 	symbols = "0123456789ABCDEF";
 	if (n >= 16)
 	{
-		value += ft_hexupper(n / 16);
+		value += ft_hexupper(n / 16, format);
 	}
 	value += write(1, &symbols[n % 16], 1);
 	return (value);

@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_chosenbr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/19 19:56:16 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/26 22:40:24 by elavrich         ###   ########.fr       */
+/*   Created: 2024/09/26 22:23:26 by elavrich          #+#    #+#             */
+/*   Updated: 2024/09/26 22:40:43 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr(char *s, const char *format)
+int	ft_chosenbr(int n, const char *format)
 {
-	int	i;
+	int	count;
 
-	i = 0;
-	(void)format;
-	while (s[i])
-	{
-		write(1, &s[i], 1);
-		i++;
-	}
-	return (i);
+	count = 0;
+	if (ft_check_arg(format) == 'u')
+		count += ft_putunsint(n, format);
+	else
+		count += ft_putnbr(n, format);
+	return (count);
 }

@@ -6,13 +6,13 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:56:18 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/26 20:02:32 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/26 22:40:29 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_putnbr(int n)
+int	ft_putnbr(int n, const char *format)
 {
 	char	num;
 	int		i;
@@ -31,11 +31,11 @@ int	ft_putnbr(int n)
 	}
 	if (n >= 10)
 	{
-		ft_putnbr(n / 10);
-		i++;
+		i += ft_putnbr((n / 10), format);
 	}
 	num = (n % 10) + '0';
 	write(1, &num, 1);
+	i++;
 	return (i);
 }
 // int main()

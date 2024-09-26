@@ -6,11 +6,11 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 15:37:47 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/26 16:12:42 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/26 22:40:38 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 unsigned long	ft_ptr(unsigned long num)
 {
@@ -26,11 +26,12 @@ unsigned long	ft_ptr(unsigned long num)
 	value += write(1, &symbols[num % 16], 1);
 	return (value);
 }
-unsigned long	ft_print_void_pointer(unsigned long num)
+unsigned long	ft_print_void_pointer(unsigned long num, const char *format)
 {
 	unsigned long	value;
 	char			*symbols;
 
+	(void)format;
 	symbols = "0123456789abcdef";
 	value = 0;
 	if (!num)

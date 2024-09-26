@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_chosehex.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/19 19:56:16 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/26 22:40:24 by elavrich         ###   ########.fr       */
+/*   Created: 2024/09/26 21:20:39 by elavrich          #+#    #+#             */
+/*   Updated: 2024/09/26 22:40:45 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr(char *s, const char *format)
+int	ft_chosehex(int n, const char *format)
 {
-	int	i;
+	int	count;
 
-	i = 0;
-	(void)format;
-	while (s[i])
-	{
-		write(1, &s[i], 1);
-		i++;
-	}
-	return (i);
+	count = 0;
+	if (ft_check_arg(format) == 'x')
+		count += ft_hexlower(n, format);
+	else
+		count += ft_hexupper(n, format);
+	return (count);
 }

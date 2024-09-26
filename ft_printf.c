@@ -6,98 +6,47 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 14:00:34 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/26 20:06:07 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/26 23:14:31 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_atoi.c"
-#include "ft_check_arg.c"
-#include "ft_hexlower.c"
-#include "ft_hexupper.c"
-#include "ft_pointer.c"
-#include "ft_putchar.c"
-#include "ft_putnbr.c"
-#include "ft_putstr.c"
-#include "ft_putunsint.c"
-#include "libft.h"
+#include "ft_printf.h"
 
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
-	int		num;
-	char	*str;
-	double	nm;
-	char	ch;
-	void	*ptr;
-	char	*hex_str;
 	int		count;
 
 	count = 0;
 	va_start(args, format);
 	while (*format)
 	{
-		if (ft_check_arg(format) == 'd' || ft_check_arg(format) == 'i')
-		{
-			num = va_arg(args, int);
-			count += ft_putnbr(num);
-			format++;
-		}
-		else if (ft_check_arg(format) == 'u')
-		{
-			num = va_arg(args, unsigned int);
-			ft_putunsint(num);
-			format++;
-		}
+		if (ft_check_arg(format) == 'd' || ft_check_arg(format) == 'i'|| ft_check_arg(format) == 'u')
+			count += ft_chosenbr(va_arg(args, int), format++);
 		else if (ft_check_arg(format) == 's')
-		{
-			str = va_arg(args, char *);
-			count += ft_putstr(str);
-			format++;
-		}
+			count += ft_putstr(va_arg(args, char *), format++);
 		else if (ft_check_arg(format) == 'p')
-		{
-			ptr = va_arg(args, void *);
-			ft_print_void_pointer((unsigned long)ptr);
-			format++;
-		}
+			count += ft_print_void_pointer((unsigned long)va_arg(args, void *),format++);
 		else if (ft_check_arg(format) == '%')
-		{
-			ch = '%';
-			ft_putchar((char)ch);
-			format++;
-		}
+			count += ft_putchar((char)'%', format++);
 		else if (ft_check_arg(format) == 'c')
-		{
-			ch = va_arg(args, int);
-			ft_putchar((char)ch);
-			format++;
-		}
-		else if (ft_check_arg(format) == 'x')
-		{
-			num = va_arg(args, int);
-			ft_hexlower(num);
-			format++;
-		}
-		else if (ft_check_arg(format) == 'X')
-		{
-			num = va_arg(args, int);
-			ft_hexupper(num);
-			format++;
-		}
+			count += ft_putchar((char)va_arg(args, int), format++);
+		else if (ft_check_arg(format) == 'x' || ft_check_arg(format) == 'X')
+			count += ft_chosehex(va_arg(args, int), format++);
 		else
-			count += ft_putchar(*format);
+			count += ft_putchar_onear(*format);
 		format++;
 	}
 	va_end(args);
 	return (count);
 }
-int	main(void)
-{
-	int	a;
-	int	*ptr;
+// int	main(void)
+// {
+// 	int	a;
+// 	int	*ptr;
 
-	a = 6546;
-	ptr = &a;
-	ft_printf("%d", ft_printf("%s ", "abc"));
-	printf("%d", printf("\n%s ", "abc"));
-}
+// 	a = -456;
+// 	ptr = &a;
+// 	ft_printf(" %x ", -1);
+// 	printf("\n%x ", -1);
+// }

@@ -6,11 +6,11 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 16:25:05 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/26 17:51:21 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/26 22:40:47 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 char	ft_check_arg(const char *format)
 {
@@ -32,6 +32,5 @@ char	ft_check_arg(const char *format)
 		return ('x');
 	if (*format == '%' && *(format + 1) == 'X')
 		return ('X');
-	format++;
 	return ('\0');
 }

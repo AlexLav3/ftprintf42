@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 00:23:37 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/26 20:05:45 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/26 22:39:57 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 # include <stdarg.h>
 # include <stddef.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
-int		ft_printf(const char *format, ...);
-
-int		ft_isalnum(int c);
-int		ft_putchar(char c);
-int		ft_putstr(char *s);
-int		ft_putnbr(int n);
-void	ft_newl(void);
+int				ft_atoi(const char *nptr);
+int				ft_printf(const char *format, ...);
+int				ft_chosehex(int n, const char *format);
+int				ft_hexlower(int n, const char *format);
+int				ft_hexupper(int n, const char *format);
+unsigned long	ft_print_void_pointer(unsigned long num, const char *format);
+int				ft_putchar_onear(char c);
+char			ft_check_arg(const char *format);
+int				ft_putchar(char c, const char *format);
+int				ft_putstr(char *s, const char *format);
+int				ft_putnbr(int n, const char *format);
+void			ft_newl(void);
+int				ft_putunsint(unsigned n, const char *format);
+int				ft_chosenbr(int n, const char *format);
 
 #endif
