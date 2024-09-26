@@ -6,19 +6,19 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 14:00:34 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/26 16:45:57 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/26 17:38:47 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_atoi.c"
 #include "ft_check_arg.c"
 #include "ft_hexlower.c"
+#include "ft_hexupper.c"
 #include "ft_pointer.c"
 #include "ft_putchar.c"
 #include "ft_putnbr.c"
 #include "ft_putstr.c"
 #include "ft_putunsint.c"
-#include "ft_hexupper.c"
 #include "libft.h"
 
 int	ft_printf(const char *format, ...)
@@ -81,10 +81,10 @@ int	ft_printf(const char *format, ...)
 int	main(void)
 {
 	int	a;
+	int	*ptr;
 
-	// int	*ptr;
 	a = 654648;
-	// ptr = &a;
-	ft_printf("%X", a);
-	printf("\n%X", a);
+	ptr = &a;
+	ft_printf("%X, %p", a, ptr);
+	printf("\n%X, %p", a, ptr);
 }
