@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 14:00:34 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/26 23:22:26 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/26 23:27:27 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,3 @@ int	ft_printf(const char *format, ...)
 // 	ft_printf(" %x ", -1);
 // 	printf("\n%x ", -1);
 // }
-//test
