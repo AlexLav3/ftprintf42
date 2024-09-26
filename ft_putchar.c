@@ -6,13 +6,14 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:56:25 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/25 13:54:27 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/26 20:05:35 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar(char c)
+int	ft_putchar(char c)
 {
 	write(1, &c, 1);
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 14:00:34 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/26 17:38:47 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/26 20:06:07 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,61 +30,74 @@ int	ft_printf(const char *format, ...)
 	char	ch;
 	void	*ptr;
 	char	*hex_str;
+	int		count;
 
+	count = 0;
 	va_start(args, format);
 	while (*format)
 	{
 		if (ft_check_arg(format) == 'd' || ft_check_arg(format) == 'i')
 		{
 			num = va_arg(args, int);
-			ft_putnbr(num);
+			count += ft_putnbr(num);
+			format++;
 		}
 		else if (ft_check_arg(format) == 'u')
 		{
 			num = va_arg(args, unsigned int);
 			ft_putunsint(num);
+			format++;
 		}
 		else if (ft_check_arg(format) == 's')
 		{
 			str = va_arg(args, char *);
-			ft_putstr(str);
+			count += ft_putstr(str);
+			format++;
 		}
 		else if (ft_check_arg(format) == 'p')
 		{
 			ptr = va_arg(args, void *);
 			ft_print_void_pointer((unsigned long)ptr);
+			format++;
 		}
 		else if (ft_check_arg(format) == '%')
 		{
 			ch = '%';
 			ft_putchar((char)ch);
+			format++;
 		}
 		else if (ft_check_arg(format) == 'c')
 		{
 			ch = va_arg(args, int);
 			ft_putchar((char)ch);
+			format++;
 		}
 		else if (ft_check_arg(format) == 'x')
 		{
 			num = va_arg(args, int);
 			ft_hexlower(num);
+			format++;
 		}
 		else if (ft_check_arg(format) == 'X')
 		{
 			num = va_arg(args, int);
 			ft_hexupper(num);
+			format++;
 		}
+		else
+			count += ft_putchar(*format);
 		format++;
 	}
-	return (0);
+	va_end(args);
+	return (count);
 }
 int	main(void)
 {
 	int	a;
 	int	*ptr;
 
-	a = 654648;
+	a = 6546;
 	ptr = &a;
-	ft_printf("%X, %p", a, ptr);
-	printf("\n%X, %p", a, ptr);
+	ft_printf("%d", ft_printf("%s ", "abc"));
+	printf("%d", printf("\n%s ", "abc"));
 }
