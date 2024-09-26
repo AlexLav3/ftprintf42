@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 14:00:34 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/26 16:13:31 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/26 16:22:02 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "ft_putchar.c"
 #include "ft_putnbr.c"
 #include "ft_putstr.c"
+#include "ft_putunsint.c"
 #include "ft_strlen.c"
 #include "libft.h"
 
@@ -35,6 +36,8 @@ char	check_arg(const char *format)
 		return ('c');
 	if (*format == '%' && *(format + 1) == 'p')
 		return ('p');
+	if (*format == '%' && *(format + 1) == 'u')
+		return ('u');
 	format++;
 	return ('\0');
 }
@@ -56,6 +59,11 @@ int	ft_printf(const char *format, ...)
 		{
 			num = va_arg(args, int);
 			ft_putnbr(num);
+		}
+		else if (check_arg(format) == 'u')
+		{
+			num = va_arg(args, unsigned int);
+			ft_putunsint(num);
 		}
 		else if (check_arg(format) == 's')
 		{
@@ -83,15 +91,13 @@ int	ft_printf(const char *format, ...)
 }
 int	main(void)
 {
-	int	a;
-	int	*ptr;
+	unsigned int	a;
 
-	a = 2;
-	ptr = &a;
-	ft_printf("%p", ptr);
-	printf("\n%p", ptr);
+	// int	*ptr;
+	a = 9;
+	// ptr = &a;
+	ft_printf("%u", a);
+	printf("\n%u", a);
 }
-// u = int unsigned decimal
 // x = unsigned hexadecimal base (base 16)
 // X = unsigned hexadecimal integer (uppercase)
-// test
