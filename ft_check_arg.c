@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 16:25:05 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/26 16:25:23 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/26 16:46:29 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 char	ft_check_arg(const char *format)
 {
-	int	length;
-
-	length = ft_strlen(format) - 1;
 	if (*format == '%' && *(format + 1) == 'd')
 		return ('d');
 	if (*format == '%' && *(format + 1) == 's')
@@ -33,6 +30,8 @@ char	ft_check_arg(const char *format)
 		return ('u');
 	if (*format == '%' && *(format + 1) == 'x')
 		return ('x');
+	if (*format == '%' && *(format + 1) == 'X')
+		return ('X');
 	format++;
 	return ('\0');
 }

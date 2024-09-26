@@ -6,18 +6,19 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 14:00:34 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/26 16:25:56 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/26 16:45:57 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_atoi.c"
 #include "ft_check_arg.c"
+#include "ft_hexlower.c"
 #include "ft_pointer.c"
 #include "ft_putchar.c"
 #include "ft_putnbr.c"
 #include "ft_putstr.c"
 #include "ft_putunsint.c"
-#include "ft_strlen.c"
+#include "ft_hexupper.c"
 #include "libft.h"
 
 int	ft_printf(const char *format, ...)
@@ -65,6 +66,13 @@ int	ft_printf(const char *format, ...)
 		}
 		else if (ft_check_arg(format) == 'x')
 		{
+			num = va_arg(args, int);
+			ft_hexlower(num);
+		}
+		else if (ft_check_arg(format) == 'X')
+		{
+			num = va_arg(args, int);
+			ft_hexupper(num);
 		}
 		format++;
 	}
@@ -72,13 +80,11 @@ int	ft_printf(const char *format, ...)
 }
 int	main(void)
 {
-	unsigned int	a;
+	int	a;
 
 	// int	*ptr;
-	a = 9;
+	a = 654648;
 	// ptr = &a;
-	ft_printf("%u", a);
-	printf("\n%u", a);
+	ft_printf("%X", a);
+	printf("\n%X", a);
 }
-// x = unsigned hexadecimal base (base 16)
-// X = unsigned hexadecimal integer (uppercase)

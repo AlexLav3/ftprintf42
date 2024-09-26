@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_hexupper.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/19 19:58:16 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/19 21:22:54 by elavrich         ###   ########.fr       */
+/*   Created: 2024/09/26 16:34:38 by elavrich          #+#    #+#             */
+/*   Updated: 2024/09/26 16:44:27 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char	*str)
+int	ft_hexupper(int n)
 {
-	size_t	i;
+	char	*symbols;
+	int		value;
 
-	i = 0;
-	while (str[i] != '\0')
+	value = 0;
+	symbols = "0123456789ABCDEF";
+	if (n >= 16)
 	{
-		i++;
+		value += ft_hexupper(n / 16);
 	}
-	return (i);
+	value += write(1, &symbols[n % 16], 1);
+	return (value);
 }
-
-/*int main()
-{
-	int lenght = ft_strlen("idkwhattowrite");
-	printf("%d",lenght);
-}*/
