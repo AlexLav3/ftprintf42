@@ -6,13 +6,13 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 16:17:37 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/26 22:40:18 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/27 21:57:11 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putunsint(unsigned n, const char *format)
+int	ft_putunsint(unsigned int n, const char *format)
 {
 	char	num;
 	int		i;

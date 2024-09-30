@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:56:16 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/26 22:40:24 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/27 17:13:47 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@ int	ft_putstr(char *s, const char *format)
 
 	i = 0;
 	(void)format;
+	if (!s)
+	{
+		write(1, "(null)", 6);
+		i++;
+		return (i);
+	}
 	while (s[i])
 	{
 		write(1, &s[i], 1);

@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 15:37:47 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/26 22:40:38 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/27 17:25:47 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ unsigned long	ft_ptr(unsigned long num)
 	value += write(1, &symbols[num % 16], 1);
 	return (value);
 }
+
 unsigned long	ft_print_void_pointer(unsigned long num, const char *format)
 {
 	unsigned long	value;

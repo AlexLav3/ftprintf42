@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 16:34:38 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/26 22:40:40 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/27 16:58:56 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,17 @@
 
 int	ft_hexupper(int n, const char *format)
 {
-	char	*symbols;
-	int		value;
+	char			*symbols;
+	int				value;
+	unsigned int	nn;
 
+	nn = (unsigned int)n;
 	value = 0;
 	symbols = "0123456789ABCDEF";
-	if (n >= 16)
+	if (nn >= 16)
 	{
-		value += ft_hexupper(n / 16, format);
+		value += ft_hexupper(nn / 16, format);
 	}
-	value += write(1, &symbols[n % 16], 1);
+	value += write(1, &symbols[nn % 16], 1);
 	return (value);
 }

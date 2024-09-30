@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 00:23:37 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/26 22:39:57 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/09/27 17:36:35 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int				ft_putchar(char c, const char *format);
 int				ft_putstr(char *s, const char *format);
 int				ft_putnbr(int n, const char *format);
 void			ft_newl(void);
-int				ft_putunsint(unsigned n, const char *format);
+int				ft_putunsint(unsigned int n, const char *format);
 int				ft_chosenbr(int n, const char *format);
 
 #endif
