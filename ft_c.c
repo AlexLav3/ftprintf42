@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_arg.c                                     :+:      :+:    :+:   */
+/*   ft_c.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 16:25:05 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/27 17:24:51 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/10/01 20:19:37 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	ft_check_arg(const char *format)
+char	ft_c(const char *format)
 {
 	if (*format == '%' && *(format + 1) == 'd')
 		return ('d');

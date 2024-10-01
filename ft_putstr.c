@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:56:16 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/27 17:13:47 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/10/01 20:16:37 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ int	ft_putstr(char *s, const char *format)
 	if (!s)
 	{
 		write(1, "(null)", 6);
-		i++;
-		return (i);
+		return (6);
 	}
 	while (s[i])
 	{

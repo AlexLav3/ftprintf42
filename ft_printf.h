@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 00:23:37 by elavrich          #+#    #+#             */
-/*   Updated: 2024/09/27 17:36:35 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/10/01 20:21:41 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int				ft_printf(const char *format, ...);
 int				ft_chosehex(int n, const char *format);
 int				ft_hexlower(int n, const char *format);
 int				ft_hexupper(int n, const char *format);
-unsigned long	ft_print_void_pointer(unsigned long num, const char *format);
+unsigned long	ft_vptr(unsigned long num, const char *format);
 int				ft_putchar_onear(char c);
-char			ft_check_arg(const char *format);
+char			ft_c(const char *format);
 int				ft_putchar(char c, const char *format);
 int				ft_putstr(char *s, const char *format);
 int				ft_putnbr(int n, const char *format);
