@@ -6,7 +6,7 @@
 /*   By: elavrich <elavrich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 14:00:34 by elavrich          #+#    #+#             */
-/*   Updated: 2024/10/01 20:33:49 by elavrich         ###   ########.fr       */
+/*   Updated: 2024/10/03 00:52:50 by elavrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,35 +49,36 @@ int	ft_printf(const char *format, ...)
 // 	a = 4;
 // 	ptr = &a;
 
-// 	// ft_printf(" %u ", a);
-// 	// ft_printf(" %u ", a);
+// 	ft_printf(" %u ", a);
+// 	ft_printf(" %u\n ", a);
 
-// 	// ft_printf(" %d ", a);
-// 	// printf(" %d ", a);
+// 	ft_printf(" %d ", a);
+// 	printf(" %d\n ", a);
 
-// 	// ft_printf(" %i ", a);
-// 	// printf(" %i ", a);
+// 	ft_printf(" %i ", a);
+// 	printf(" %i\n ", a);
 
-// 	ft_printf(" %x ", 455);
-// 	printf(" %x ", 455);
+// 	ft_printf(" %x", 455);
+// 	printf(" %x\n ", 455);
 
 // 	ft_printf(" %X ", 455);
-// 	printf(" %X ", 455);
+// 	printf(" %X\n ", 455);
 
-// 	// ft_printf(" %p ", ptr);
-// 	// printf(" %p ", ptr);
+// 	ft_printf(" %p ", ptr);
+// 	printf(" %p\n ", ptr);
 
-// 	// ft_printf(" %c ", 'a');
-// 	// printf(" %c ", 'a');
+// 	ft_printf(" %c ", 'a');
+// 	printf(" %c\n ", 'a');
 
-// 	// ft_printf(" %s ", "string");
-// 	// printf(" %s ", "string");
+// 	ft_printf(" %s ", "string");
+// 	printf(" %s\n ", "string");
 
-// 	// ft_printf(" %% ");
-// 	// printf(" %% ");
+// 	ft_printf(" %% ");
+// 	printf(" %%\n ");
 
-// 	// ft_printf("%d", ft_printf(" %u ", a));
-// 	// printf("%d", printf(" %u ", a));
-// 	// //printf("%d", printf("| NULL %s NULL |\n", NULL));
-// 	// ft_printf("%d", ft_printf("| NULL %s NULL |\n", NULL));
+// 	ft_printf("%d", ft_printf(" %u ", a));
+// 	printf("%d", printf(" %u\n ", a));
+
+// 	//printf("%d", printf("| NULL %s NULL |\n", NULL));
+// 	ft_printf("%d", ft_printf("| NULL %s NULL |\n", NULL));
 // }
